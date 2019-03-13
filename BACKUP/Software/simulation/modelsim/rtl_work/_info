@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\frase\Google Drive\Juventus_Technikerschule\4.Semester_ED\FPGA_VHDL\Semesterarbeit\Software\simulation\modelsim
+Esemesterarbeit_fpga_vhdl
+Z1 w1544123217
+Z2 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z3 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+Z4 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z5 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z6 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z7 dC:\Users\frase\Google Drive\Juventus_Technikerschule\4.Semester_ED\FPGA_VHDL\Semesterarbeit\Software\simulation\modelsim
+Z8 8../../Semesterarbeit_FPGA_VHDL.vhd
+Z9 F../../Semesterarbeit_FPGA_VHDL.vhd
+l0
+L10
+VZI9iNQJhQeU3X8oiI0a=`2
+Z10 OV;C;10.1d;51
+32
+Z11 !s108 1544123298.821000
+Z12 !s90 -reportprogress|300|-work|work|../../Semesterarbeit_FPGA_VHDL.vhd|
+Z13 !s107 ../../Semesterarbeit_FPGA_VHDL.vhd|
+Z14 o-work work -O0
+Z15 tExplicit 1
+!s100 zn5_V=RFEKMZ7fgofa79G2
+!i10b 1
+Abeh_semesterarbeit_fpga_vhdl
+R2
+R3
+R4
+R5
+R6
+DEx4 work 24 semesterarbeit_fpga_vhdl 0 22 ZI9iNQJhQeU3X8oiI0a=`2
+l53
+L32
+V``];RIHjiRR>HTLg3`=]P0
+R10
+32
+R11
+R12
+R13
+R14
+R15
+!s100 YhK]eL0>F=373gon_I96L2
+!i10b 1
+Esemesterarbeit_fpga_vhdl_vhd_tst
+Z16 w1544123208
+R5
+R6
+R7
+Z17 8TB_Semesterarbeit_FPGA_VHDL.vht
+Z18 FTB_Semesterarbeit_FPGA_VHDL.vht
+l0
+L30
+Vel0Kjf0]9J^a=S0:^EzjT0
+!s100 4XYOOPAGH^GdLU5:0e]IG3
+R10
+32
+!i10b 1
+Z19 !s108 1544123299.041000
+Z20 !s90 -reportprogress|300|-work|work|TB_Semesterarbeit_FPGA_VHDL.vht|
+Z21 !s107 TB_Semesterarbeit_FPGA_VHDL.vht|
+R14
+R15
+Asemesterarbeit_fpga_vhdl_arch
+R5
+R6
+DEx4 work 32 semesterarbeit_fpga_vhdl_vhd_tst 0 22 el0Kjf0]9J^a=S0:^EzjT0
+l66
+L32
+VRJ:`==V=hSa60CkU]<YP00
+!s100 5mVfJ87YUO?A4307HBjmC3
+R10
+32
+!i10b 1
+R19
+R20
+R21
+R14
+R15

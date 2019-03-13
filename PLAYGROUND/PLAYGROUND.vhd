@@ -1,0 +1,80 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.std_logic_unsigned.all;   
+
+entity PLAYGROUND is                                                  -- Filename.vhd = Filename!
+  port(	
+  		G_CLK		 :		IN	 STD_LOGIC;													-- Input Signal CLK 50MHz
+  		Button1   :		IN	 STD_LOGIC;	                                    -- Button Eingang für auf ab (Aufgabe 4) / Zähleingang (Aufgabe 6)
+      Fast      :		IN	 STD_LOGIC;	                                    -- Button Eingang für auf ab (Aufgabe 4) / Zähleingang (Aufgabe 6)
+		Reset		 :		IN	 STD_LOGIC;													-- Input Reset für definierten Startzustand
+      Carry     :	   OUT  STD_LOGIC;                                    -- Carry Ausgang des BCD Zaehlers (Binary coded decimal) (Aufgabe 0)
+      Segment0  :	   OUT  STD_LOGIC_VECTOR(6 DOWNTO 0);                 -- Ausgang zu 7 Segment Anzeige (Aufgabe 3)
+		CountOut  :		OUT  STD_LOGIC_VECTOR(3 DOWNTO 0));	        
+end PLAYGROUND;
+
+
+-----------------------------------------------------------------------------  
+--                           Clock Divider Architektur
+-----------------------------------------------------------------------------
+architecture Beh_PLAYGROUND of PLAYGROUND is                           
+  signal CLK_ena       : std_logic;                         -- Enable Signal mit 1 MHz Frequenz
+  signal SyncButton    : std_logic_vector(2 downto 0);      -- Synchronisiertes Button Signal
+  signal Divider       : std_logic_vector(24 downto 0);     -- Zähler für 1 MHz Enable Signal
+  signal Counter       : std_logic_vector(3 downto 0);      -- Zähler auf 1 MHz Basis    
+  ---------------------------------------------------------------------------
+  Begin
+  -----------------------------------------------------------------------------	
+  -- 				  Clock Divider
+  -----------------------------------------------------------------------------         
+  ClkDiv1: process (G_CLK)        -- Clock Divider Prozess erzeut 1 MHz Enable Signal
+  begin
+
+    if (rising_edge(G_CLK)) then             -- Bei steigender Globaler Clock G_Clk Flanke(50MHz): 
+        
+      SyncButton(0) <= Button1;
+      SyncButton(1) <= SyncButton(0);
+      SyncButton(2) <= SyncButton(1);  
+        
+      CLK_ena <= '0';   
+        
+      if SyncButton(1) ='1' and SyncButton(2) ='0' then  -- Rising edge von Button1 
+         CLK_ena <= '1';     
+      end if;
+    end if;
+  end process ClkDiv1;
+
+  -----------------------------------------------------------------------------  
+  --                    Enable Signal benutzen für BCD Counter
+  -----------------------------------------------------------------------------
+  BCD1: process (G_CLK,Reset) 
+  begin  
+    if Reset = '1' then
+      Counter <= x"0";
+    elsif (rising_edge(G_CLK)) then               -- Globaler Clock: Steigende G_Clk Flanke(50MHz):  
+        
+      if CLK_ena = '1' then                      -- ist 1 für eine G_Clk Periode 
+        Counter <= Counter + '1';                 -- Imkrementiere Counter 
+        if Counter =   x"9" then                  -- falls Counter = 10 (am Ende des Prozesses)
+            Counter <= x"0";                      -- Counter = 0
+        end if;  
+      end if;  
+    end if;
+  end process BCD1;
+  CountOut <= Counter;                            -- Wert ausgeben (CountOut ist 4 bit Ausgang)
+  
+ with Counter select -- Auswahl
+ Segment0 <=  "1000000" when x"0", -- 0 = LED ein
+              "1111001" when x"1", --     0  
+              "0100100" when x"2", --    ---
+              "0110000" when x"3", --  5| 6 |1
+              "0011001" when x"4", --    ---
+              "0010010" when x"5", --  4|   |2
+              "0000010" when x"6", --    ---
+              "1111000" when x"7", --     3
+              "0000000" when x"8",
+              "0010000" when x"9",
+              "1111111" when others; -- Bei anderen Werten: alle Leds aus
+  
+end Beh_PLAYGROUND;

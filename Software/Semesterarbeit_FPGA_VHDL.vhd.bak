@@ -1,0 +1,63 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+-----------------------------------------------
+--					ENTITY 								--
+-----------------------------------------------
+
+entity Semesterarbeit_FPGA_VHDL is 
+	port (
+		g_clk		:	in;
+		reset		:	in;
+		
+end Semesterarbeit_FPGA_VHDL;
+
+-----------------------------------------------
+--						ARCHITECTURE					--
+-----------------------------------------------
+
+architecture Beh_Semesterarbeit_FPGA_VHDL of Semesterarbeit_FPGA_VHDL is
+	signal	clk_ena		:			;
+	signal	divider 		:		(11 downto 0);
+	signal 	counter		:		(3 downto 0);
+	
+Begin
+
+ClkDiv: process (clk, reset, divider)
+begin
+	if (reset = '1') then
+		divider <= x"000";
+		elsif ((clk)) then
+			divider <= divider +1;
+	end if;
+	
+	if (divider = 50-1) then
+		divider <= "000";
+	end if;
+	
+	if (divider = 0) then
+		clk_ena <= '1';
+	else
+		clk_ena <= '0';
+	end if;
+end process ClkDiv;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

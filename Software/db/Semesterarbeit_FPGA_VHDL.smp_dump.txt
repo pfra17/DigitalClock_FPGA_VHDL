@@ -1,0 +1,5 @@
+
+State Machine - |Semesterarbeit_FPGA_VHDL|state
+Name state.show_clock 
+state.set_time 0 
+state.show_clock 1 

@@ -1,0 +1,29 @@
+|PLAYGROUND
+G_CLK => Counter[0].CLK
+G_CLK => Counter[1].CLK
+G_CLK => Counter[2].CLK
+G_CLK => Counter[3].CLK
+G_CLK => CLK_ena.CLK
+G_CLK => SyncButton[0].CLK
+G_CLK => SyncButton[1].CLK
+G_CLK => SyncButton[2].CLK
+Button1 => SyncButton[0].DATAIN
+Fast => ~NO_FANOUT~
+Reset => Counter[0].ACLR
+Reset => Counter[1].ACLR
+Reset => Counter[2].ACLR
+Reset => Counter[3].ACLR
+Carry <= comb.DB_MAX_OUTPUT_PORT_TYPE
+Segment0[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+Segment0[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+Segment0[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+Segment0[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+Segment0[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+Segment0[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+Segment0[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+CountOut[0] <= Counter[0].DB_MAX_OUTPUT_PORT_TYPE
+CountOut[1] <= Counter[1].DB_MAX_OUTPUT_PORT_TYPE
+CountOut[2] <= Counter[2].DB_MAX_OUTPUT_PORT_TYPE
+CountOut[3] <= Counter[3].DB_MAX_OUTPUT_PORT_TYPE
+
+

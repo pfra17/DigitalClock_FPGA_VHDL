@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences>
+ <debug showDebugMenu="0" />
+ <systemtable>
+  <columns>
+   <connections preferredWidth="47" />
+   <irq preferredWidth="34" />
+   <name preferredWidth="302" />
+  </columns>
+ </systemtable>
+ <clocktable>
+  <columns>
+   <clockname preferredWidth="542" />
+   <clocksource preferredWidth="542" />
+   <frequency preferredWidth="523" />
+  </columns>
+ </clocktable>
+ <window width="3026" height="1946" x="-13" y="-13" />
+ <library
+   expandedCategories="Library/Configuration &amp; Programming,Project/System,Library/Bridges,Project,Library" />
+ <hdlexample language="VHDL" />
+</preferences>
